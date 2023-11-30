@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
 
     function pr(): Promise<any> {
         return new Promise(async function (resolve, reject) {
-        child_process.exec(`mongosh --quiet ${uri} ./tmp/functions.js ${queryFile} > ${resultsFile}`, (error, stdout, stderr) => {
+        child_process.exec(`mongosh --quiet ${uri} ./lib/functions.js ${queryFile} > ${resultsFile}`, (error, stdout, stderr) => {
           if (error) reject(error);
           if(stderr) reject(stderr);
           else resolve(stdout);
